@@ -22,7 +22,6 @@ int sendCommand(char *command, int fd){
     }
 }
 int doInteractiveShell(int &fd,int &pid){
-    cout << fd << "\n";
     vector<char *> commands(13);
     char *intro= "\n";
     commands[0] = "python -c 'import pty; pty.spawn(\"/bin/bash\")'";
@@ -69,13 +68,12 @@ int main (int argc, char *argv[]) {
     }else{
         char *filedes = argv[1];
         fd = open(filedes,O_RDWR);
-        cout << fd << "\n";
     }
     int error = doInteractiveShell(fd, pid);
     if (error == 0){
-        cout << "Shell interactiva correcta";
+         printf("Shell interactiva correcta");
     }else{
-        printf("ERROR: codigo %i",error);
+       
         exit(-1);
     }
 
