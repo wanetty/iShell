@@ -9,9 +9,9 @@ Transforma una conexión simple de una reverse shell de GNU, en interactiva.
 g++ ishell.cpp -o ishell
 ```
 ## Usage
-
+Importante usar como adminroot ya que para enviar comandos entre terminales es necesario.
 ```
-ishell <fd-pts> <pid>
+sudo ishell <fd-pts> <pid>
 ```
 ## Example:
 Hay que saber el pid del proceso de la reveseshell y el file descriptor de nuestra shell que hemos ejecutado y ya tenemos conexión de la victima.
