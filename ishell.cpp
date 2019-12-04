@@ -10,6 +10,7 @@
 #include <signal.h>
 using namespace std;
 //Make BY Wanetty 
+//To compile g++ ishell.cpp -o ishell
 int autodetect(){
  //TODO: Nothing
 }
@@ -26,9 +27,9 @@ int doInteractiveShell(int &fd,int &pid){
     char *intro= "\n";
     commands[0] = "python -c 'import pty; pty.spawn(\"/bin/bash\")'";
     commands[1] = intro;
-    commands[2] = "export TERM=screen-256color";
+    commands[2] = "export TERM=xterm-256color";
     commands[3] = intro;
-    commands[4] = "echo $TERM";
+    commands[4] = "echo $TERM && tput lines && tput cols";
     commands[5] = intro;
     commands[6] = "stty raw -echo";
     commands[7] = intro;
@@ -36,13 +37,12 @@ int doInteractiveShell(int &fd,int &pid){
     commands[9] = intro;
     commands[10] = intro;
     commands[11] = "export TERM=screen";
-    commands[10] = intro;
-
+    commands[12] = intro;
     for (int i = 0; i <commands.size(); ++i){
          usleep(250000);
-        int error = sendCommand(commands[i],fd);
-        if (error == -1 ) return error;
-        if(i  == 3) {
+         int error = sendCommand(commands[i],fd);
+         if (error == -1 ) return error;
+         if(i  == 3) {
             usleep(250000);
             kill(pid,SIGTSTP);
         }
@@ -64,16 +64,15 @@ int main (int argc, char *argv[]) {
     if (pid == 0)  printf("ERROR: El pid del proceso debe ser un numero diferente de 0.\n");
     if(auto_detection){
         fd = 0;
-        printf("TODO: Crear el autodetector de shell con netcat.");
+        printf("TODO: Crear el autodetector de shell con netcat.\n");
     }else{
         char *filedes = argv[1];
         fd = open(filedes,O_RDWR);
     }
     int error = doInteractiveShell(fd, pid);
     if (error == 0){
-         printf("Shell interactiva correcta");
+         printf("Shell interactiva correcta\n En caso de querer ajustar las columnas y filas poner siguiente comando:\n  'stty rows <num> columns <cols>' \n");
     }else{
-       
         exit(-1);
     }
 
