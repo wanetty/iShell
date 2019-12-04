@@ -22,7 +22,7 @@ wanetty 27292  0.0  0.0   7956  1876 pts/4    S+   15:37   0:00 nc -lvp 1111
 wanetty 27340  0.0  0.0  12780   924 pts/3    S+   15:38   0:00 grep --color=auto nc -lvp
 
 Ejecución:
-ishell /dev/pts/4 27292
+sudo ishell /dev/pts/4 27292
 ```
 
 ## TODO:
