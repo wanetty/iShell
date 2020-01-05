@@ -25,7 +25,7 @@ int sendCommand(char *command, int fd){
 int doInteractiveShell(int &fd,int &pid){
     vector<char *> commands(13);
     char *intro= "\n";
-    commands[0] = "python -c 'import pty; pty.spawn(\"/bin/bash\")'";
+    commands[0] = "python3 -c 'import pty; pty.spawn(\"/bin/bash\")'";
     commands[1] = intro;
     commands[2] = "export TERM=xterm-256color";
     commands[3] = intro;
