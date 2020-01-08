@@ -24,10 +24,10 @@ wanetty 27340  0.0  0.0  12780   924 pts/3    S+   15:38   0:00 grep --color=aut
 Ejecución:
 sudo ishell /dev/pts/4 27292
 ```
-###OneLiner usage
+OneLiner usage:
 
 ```
-sudo ./ishell $(ps -aux | grep ".nc -lv" | sort -n | awk -F" " '{print "/dev/"$7" "$2}' | head -n 1)
+sudo ./ishell $(ps -aux | grep "nc -lv" | sort -n | awk -F" " '{print "/dev/"$7" "$2}' | head -n 1)
 ```
 
 ## TODO:
