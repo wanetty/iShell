@@ -14,7 +14,7 @@ Importante usar como adminroot ya que para enviar comandos entre terminales es n
 sudo ishell <fd-pts> <pid>
 ```
 ## Example
-Hay que saber el pid del proceso de la reveseshell y el file descriptor de nuestra shell que hemos ejecutado y ya tenemos conexión de la victima.
+Hay que saber el pid del proceso de la reverseshell y el file descriptor de nuestra shell que hemos ejecutado y ya tenemos conexión de la victima.
 ```
 En local:
 ps -aux | grep "nc -lvnp"
