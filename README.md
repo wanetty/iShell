@@ -13,7 +13,7 @@ Importante usar como adminroot ya que para enviar comandos entre terminales es n
 ```
 sudo ishell <fd-pts> <pid>
 ```
-## Example:
+## Example
 Hay que saber el pid del proceso de la reveseshell y el file descriptor de nuestra shell que hemos ejecutado y ya tenemos conexión de la victima.
 ```
 En local:
@@ -23,6 +23,11 @@ wanetty 27340  0.0  0.0  12780   924 pts/3    S+   15:38   0:00 grep --color=aut
 
 Ejecución:
 sudo ishell /dev/pts/4 27292
+```
+###OneLiner usage
+
+```
+sudo ./ishell $(ps -aux | grep ".nc -lv" | sort -n | awk -F" " '{print "/dev/"$7" "$2}' | head -n 1)
 ```
 
 ## TODO:
