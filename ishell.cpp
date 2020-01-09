@@ -25,18 +25,18 @@ int sendCommand(char *command, int fd){
 int doInteractiveShell(int &fd,int &pid){
     vector<char *> commands(13);
     char *intro= "\n";
-    commands[0] = "python3 -c 'import pty; pty.spawn(\"/bin/bash\")'";
+    commands[0] = " python3 -c 'import pty; pty.spawn(\"/bin/bash\")'";
     commands[1] = intro;
-    commands[2] = "export TERM=xterm-256color";
+    commands[2] = " export TERM=xterm-256color";
     commands[3] = intro;
-    commands[4] = "echo $TERM && tput lines && tput cols";
+    commands[4] = " echo $TERM && tput lines && tput cols";
     commands[5] = intro;
-    commands[6] = "stty raw -echo";
+    commands[6] = " stty raw -echo";
     commands[7] = intro;
-    commands[8] = "fg";
+    commands[8] = " fg";
     commands[9] = intro;
     commands[10] = intro;
-    commands[11] = "export TERM=screen";
+    commands[11] = " export TERM=screen";
     commands[12] = intro;
     for (int i = 0; i <commands.size(); ++i){
          usleep(250000);
