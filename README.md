@@ -9,7 +9,7 @@ Transforma una conexión simple de una reverse shell de GNU, en interactiva.
 g++ ishell.cpp -o ishell
 ```
 ## Usage
-Importante usar como adminroot ya que para enviar comandos entre terminales es necesario.
+Importante usar como root ya que para enviar comandos entre terminales es necesario.
 ```
 sudo ishell <fd-pts> <pid>
 ```
